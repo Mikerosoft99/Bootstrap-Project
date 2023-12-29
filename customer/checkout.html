@@ -80,17 +80,41 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <a href="customerDashboard.html"><img width="100px" height="70px" src="../images/logo.png" alt="Logo"></a>
-        <ul>
-            <li><a href="customerDashboard.html">Home</a></li>
-            <li><a href="shoppingCart.html"><img src="../images/cart-black-icon.svg" width="25px" height="25px"
-                        alt="ShoppingCart"></a></li>
-            <li><a href="wishlist.html" id="wishlist">Wishlist <i class="fa-solid fa-heart"></i></a></li>
-            <li><a href="previousOrder.html">My Orders</a></li>
-            <li><a href="#" id="logoutLink">Logout</a></li>
-        </ul>
-    </div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid justify-content-between">
+            <a class="navbar-brand" href="customerDashboard.html">
+                <img width="100px" height="70px" src="../images/logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary">Search</button>
+                </form>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="customerDashboard.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="shoppingCart.html">Shopping Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wishlist.html">Wishlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="previousOrder.html">My Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutLink">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <h2>Checkout</h2>
     <div class="container hide" id="cart-Container">
@@ -188,7 +212,7 @@
             Total Price: <span class="price" style="color:black"><b>${total.toFixed(2)}$</b></span>`;
             orderDetailsContainer.appendChild(ordertotalElement);
         }
-        
+
         function calculateTotalPriceFromCart() {
             var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             var totalPrice = 0;
