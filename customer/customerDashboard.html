@@ -46,10 +46,11 @@
         </ul>
     </div> -->
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <!-- fixed navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid justify-content-between">
             <a class="navbar-brand" href="customerDashboard.html">
-                <img width="100px" height="70px" src="../images/logo.png" alt="Logo">
+                <img width="70px" height="50px" src="../images/logo.png" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -58,9 +59,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" id="searchInput" placeholder="Search By Category"
+                    <input class="form-control me-2" id="searchInput" placeholder="Search by Category"
                         aria-label="Search">
-                    <button class="btn btn-outline-primary" type="button" onclick="searchProducts()">Search</button>
+                    <button class="btn btn-outline-primary" type="button"
+                        onclick="searchProducts()"><b>Search</b></button>
                 </form>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -182,7 +184,7 @@
             let placeholder = document.getElementById('product-container');
             let out = "";
             for (let product of products) {
-                out += `<div class="col-lg-3 col-md-4 col-sm-6">
+                out += `<div class="product col-lg-3 col-md-4 col-sm-6 col-xs-12 my-3">
                     <img class="img-fluid" src="${product.image}">
                     <p><b>${product.name}</b></p>
                     <p>${product.category}</p>
@@ -277,17 +279,17 @@
             let out = '';
 
             if (products.length === 0) {
-                placeholder.innerHTML = '<h2 class="display-5 m-3 text-danger">No matching products found :(</h2>';
+                placeholder.innerHTML = '<h2 class="display-5 m-3 text-danger"> No matching products found :( </h2>';
             } else {
                 products.forEach(function (product) {
-                    out += `<div class="col-lg-3 col-md-4 col-sm-6">
+                    out += `<div class="product col-lg-3 col-md-4 col-sm-6 col-xs-12 my-3">
                             <img class="img-fluid" src="${product.image}">
                             <p><b>${product.name}</b></p>
                             <p>${product.category}</p>
                             <p>${product.price} $</p>
                             <p>Quantity: ${product.quantity}</p>
-                            <select id="quantity${product.id}" name="quantity">
-                            ${generateQuantityOptions(product.quantity)}
+                            <select class="dropdown" id="quantity${product.id}" name="quantity">
+                                ${generateQuantityOptions(product.quantity)}
                             </select>
                             <button onclick="addToCart(${product.id}, ${product.quantity})">Add to Cart</button>
                             <span class="wishlist-icon" onclick="toggleWishlist(${product.id})">${product.inWishlist ? '<i class="fa-solid fa-heart"></i>' : '<i class="fa-regular fa-heart"></i>'}</span>
