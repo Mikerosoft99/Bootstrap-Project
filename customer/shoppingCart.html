@@ -46,12 +46,19 @@
         </div>
     </nav>
 
-    <div id="cartItems"></div>
+    <!-- Cart Items -->
+    <div id="product1" class="container">
+        <div id="cartItems" class="row">
+        </div>
+    </div>
     <br>
+
     <div id="checkoutSec">
         <p id="checkoutTotal">Total Price: <span id="totalPrice"></span>$</p>
         <button id="checkoutButton" onclick="goToCheckout()">Go to Checkout</button>
     </div>
+
+    <!-- for empty cart -->
     <div id="emptycart">
         <img width="40%" src="../images/emptyCart.svg" alt="">
         <div id="emptyMessage">
@@ -105,18 +112,16 @@
 
             cartItems.forEach(function (item) {
                 cartItemsContainer.innerHTML += `
-            <div class="cart-item">
-                <div class="cart-item-details">
-                    <img src="${item.image}" alt="${item.name}" class="product-image">
-                    <p>${item.name}</p>
-                    <div class="quantity-price">
+                <div class="product col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <img src="${item.image}" alt="${item.name}" class="img-fluid my-2">
+                        <p><b>${item.name}</b></p>
+                        <div class="quantity-price">
                         <span>Quantity: ${item.quantity}</span>
                         <br>
                         <span>Price: ${(item.price * item.quantity).toFixed(2)}$</span>
-                    </div>
-                </div>
-                <button id='Remove-btn' onclick="removeFromCart(${item.id})">Remove</button>
-            </div>`;
+                        </div>
+                    <button class="btn btn-danger mt-2" onclick="removeFromCart(${item.id})">Remove</button>
+                </div>`;
             });
         }
 

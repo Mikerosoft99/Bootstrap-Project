@@ -12,21 +12,21 @@
     <link rel="stylesheet" href="../nav.css">
     <title>Wishlist</title>
     <style>
-        #product-list {
+        /* #product-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-        }
+        } */
 
-        #product-list {
+        /* #product-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
             justify-content: center;
-        }
+        } */
 
-        .product-item {
+        /* .product-item {
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -35,7 +35,7 @@
             text-align: left;
             max-width: 300px;
             margin: 0 auto;
-        }
+        } */
 
         .product-item img {
             max-width: 100%;
@@ -47,11 +47,6 @@
 
         .product-item img:hover {
             transform: scale(1.1);
-        }
-
-        .product-item select {
-            padding: 8px;
-            font-size: 14px;
         }
 
         .product-item button {
@@ -70,35 +65,8 @@
             background-color: #45a049;
         }
 
-        .wishlist-icon {
-            font-size: 20px;
-            color: rgb(5, 4, 4);
-        }
-
         #wishlistLink {
             position: relative;
-        }
-
-        .feedback-message {
-            position: fixed;
-            top: 10%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            animation: fadeOut 2s ease-in-out;
-        }
-
-        @keyframes fadeOut {
-            0% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0;
-            }
         }
 
         #emptyWishlist {
@@ -181,8 +149,11 @@
         </div>
     </div>
 
-    <div id="product-list" style="margin-top: 50px;">
-    </div>
+    <section id="product1" class="container text-center">
+        <div id="product-container" class="row"></div>
+    </section>
+
+
     <footer>
         <div id="footer-content">
             <div class="footer-section">
@@ -204,6 +175,7 @@
             <p>&copy; 2023 ITI. All rights reserved.</p>
         </div>
     </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var logoutLink = document.getElementById('logoutLink');
@@ -218,35 +190,27 @@
         var productsInWishlist = products.filter(product => product.inWishlist);
 
         function displayProducts() {
-            var productList = document.getElementById('product-list');
+            var productList = document.getElementById('product-container');
             var productsInWishlist = products.filter(product => product.inWishlist);
             productList.innerHTML = '';
 
             productsInWishlist.forEach(product => {
-                var productItem = document.createElement('div');
-                productItem.classList.add('product-item');
 
-                var imageElement = document.createElement('img');
-                imageElement.src = product.image;
-                imageElement.alt = product.name;
-
-                productItem.appendChild(imageElement);
-
-                productItem.innerHTML += `
-            <p>Name: ${product.name}</p>
-            <p>Category: ${product.category}</p>
-            <p>Price: ${product.price}</p>
-            <p>Description: ${product.description}</p>
-            <p>Quantity: ${product.quantity}</p>
-            <select id="quantity${product.id}" name="quantity">
-                ${generateQuantityOptions(product.quantity)}
-            </select>
-
-            <button onclick="addToCart(${product.id}, ${product.quantity})">Add to Cart</button>
-            
-            <span class="wishlist-icon" onclick="toggleWishlist(${product.id})">${product.inWishlist ? '<i class="fa-solid fa-heart"></i>' : '<i class="fa-regular fa-heart"></i>'}</span>`;
-
-                productList.appendChild(productItem);
+                out = `
+                <div class="product col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <img src="${product.image}" alt="${product.name}" class="img-fluid my-2">
+                    <p><b>${product.name}</b></p>
+                    <p>${product.category}</p>
+                    <p>${product.price}</p>
+                    <p>${product.description}</p>
+                    <p>Quantity: ${product.quantity}</p>
+                    <select class="dropdown" id="quantity${product.id}" name="quantity">
+                        ${generateQuantityOptions(product.quantity)}
+                    </select>
+                    <button id="addtocart" onclick="addToCart(${product.id}, ${product.quantity})">Add to Cart</button>
+                    <span class="wishlist-icon" onclick="toggleWishlist(${product.id})">${product.inWishlist ? '<i class="fa-solid fa-heart fa-xl"></i>' : '<i class="fa-regular fa-heart fa-xl"></i>'}</span>
+                </div>`;
+                productList.innerHTML += out;
             });
         };
 
