@@ -1,82 +1,41 @@
 body {
   padding-top: 75px;
-  box-shadow: 0 5px 15px black;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Hero section */
-/* #hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 120vh;
-  background-image: url("../images/background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+#feature #fe-box {
+  border: 1px solid rgb(247, 241, 241);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 15px;
 }
 
-.home1 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #797979;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 350px;
-  padding-right: 500px;
-} */
-
-
-/* offers section */
-/* #feature {
-  margin-left: 25px;
-  margin-bottom: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-#feature .fe-box {
-  width: 15%;
-  padding: 15px 5px;
-  text-align: center;
-  border: 1px solid wheat;
-  border-radius: 10px;
-  margin: 25px 0;
-}
-
-#feature .fe-box:hover {
+#feature #fe-box:hover {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
 }
-#feature .fe-box img {
-  border-radius: 10px;
-}
 
-#feature .fe-box h6 {
-  width: 90%;
-  padding: 9px 8px;
-  font-size: 90%;
-  margin: 20px auto;
-  line-height: 2;
+#feature #fe-box h6 {
+  padding: 9px 0;
+  font-weight: 600;
+  margin-top: 20px;
   border-radius: 6px;
   color: rgb(10, 88, 88);
   background-color: #d4e4f0;
-} */
+}
 
 /* Products section */
 .product {
   margin: 10px 0;
   padding: 10px;
   text-align: center;
-  border: 1px solid gainsboro;
-  background-color: rgb(241, 237, 233);
+  /* border: 1px solid gainsboro; */
+  background-color: rgba(241, 237, 233, 0.5);
   border-radius: 10px;
 }
 
 #product1 .row img {
   height: 150px;
-  border-radius: 20px;
+  border-radius: 10px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -85,13 +44,13 @@ body {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
 }
 
-.wishlist-icon{
+.wishlist-icon {
   color: rgb(255, 72, 72);
   font-size: large;
   transition: 0.4s ease;
 }
 
-.wishlist-icon:hover{
+.wishlist-icon:hover {
   color: rgb(210, 30, 30);
 }
 
@@ -305,10 +264,10 @@ input:focus {
 
 @keyframes fadeOut {
   0% {
-      opacity: 1;
+    opacity: 1;
   }
 
   100% {
-      opacity: 0;
+    opacity: 0;
   }
 }
