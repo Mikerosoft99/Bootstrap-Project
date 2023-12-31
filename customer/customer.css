@@ -64,10 +64,11 @@ body {
   background-color: #d4e4f0;
 } */
 
-/* Product section */
+/* Products section */
 .product {
   margin: 10px 0;
   padding: 10px;
+  text-align: center;
   border: 1px solid gainsboro;
   background-color: rgb(241, 237, 233);
   border-radius: 10px;
@@ -202,24 +203,6 @@ input:focus {
 } */
 
 /* Shopping Cart */
-
-.product {
-  text-align: center;
-  border: 1px solid gainsboro;
-  background-color: rgb(241, 237, 233);
-  border-radius: 10px;
-}
-
-#product1 .row img {
-  height: 150px;
-  transition: transform 0.3s ease-in-out;
-}
-
-#product1 .row img:hover {
-  transform: scale(1.08);
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
-}
-
 .quantity-price {
   margin: 10px;
 }
@@ -246,9 +229,9 @@ input:focus {
 
 #checkoutButton:hover {
   background-color: #347e38;
-} */
+}
 
-/* Empty Cart */
+/* Empty Cart & Wishlist*/
 
 #emptycart {
   text-align: center;
@@ -269,6 +252,25 @@ input:focus {
   vertical-align: middle;
 }
 
+#emptyWishlist {
+  text-align: center;
+}
+
+#emptyMessage {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#emptyMessage p {
+  font-size: 50px;
+  color: #333;
+  font-weight: 700;
+}
+
+#emptyWishlist img {
+  vertical-align: middle;
+}
+
 .shopping-link {
   background-color: #3498db;
   font-size: 20px;
@@ -284,6 +286,11 @@ input:focus {
   background-color: #1a5f8d;
 }
 
+.navbar-nav .nav-link {
+  font-weight: bold;
+}
+
+/* Added to Cart FeedBack */
 .feedback-message {
   position: fixed;
   top: 17%;
@@ -304,10 +311,4 @@ input:focus {
   100% {
       opacity: 0;
   }
-}
-
-/* bootstrap */
-
-.navbar-nav .nav-link {
-  font-weight: bold;
 }
