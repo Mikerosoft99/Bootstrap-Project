@@ -1,49 +1,44 @@
-body{
-  background-color: #E1D3C6;
-  background-image: url(../images/sign-in.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 0;
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+body {
+  background-color: rgb(226, 226, 242);
+  z-index: -1;
 }
+
 .form-container {
   max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #CD8D7A;
-  color: #fff;
-  border-radius: 5px;
+  margin: 10px auto;
+  padding: 25px;
+  background-color: #a1b1e5;
+  color: #272626;
+  border-radius: 25px;
   box-sizing: border-box;
 }
 
-.form-container label{
+.form-container label {
   font-weight: bold;
 }
 
 .form-container input,
 .form-container select {
-  background-color: #EAECCC;
+  background-color: rgb(245, 247, 249);
   width: 100%;
-  padding: 10px 5px;
+  padding: 8px 5px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   box-sizing: border-box;
 }
 
 .form-container input:focus {
-  background-color: #DBCC95;
+  background-color: #c6d0da;
 }
 
 .form-container button {
   width: 100%;
-  margin: 10px 0;
-  padding: 15px;
+  margin: 5px 0;
+  padding: 10px;
   font-size: large;
   font-weight: bold;
-  color: #c7502c;
-  background-color: #C3E2C2;
+  color: rgb(231, 226, 226);
+  background-color: #666da9;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -51,8 +46,7 @@ body{
 }
 
 .form-container button:hover {
-  background-color: #7dbd7b;
-  transition: 0.3s ease-in;
+  background-color: #535887;
 }
 
 .error {
@@ -60,10 +54,37 @@ body{
   margin: 5px 1px;
 }
 
-.form-container a{
+.form-container a {
   text-decoration: none;
-  padding: 5px;
-  color:  #fff;
+  color: #fff;
   font-size: large;
   font-weight: bold;
+}
+
+.page {
+  height: 100vh;
+}
+
+.page::before {
+  content: "";
+  position: fixed;
+  width: 300%;
+  height: 100%;
+  background-color: rgb(160, 160, 207);
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%) skew(0, -10deg);
+  border-radius: 50%;
+  z-index: -1;
+  animation: waving 5s ease-in-out infinite alternate;
+}
+
+@keyframes waving {
+  from {
+    transform: translateX(-50%) skew(0, -10deg);
+  }
+
+  to {
+    transform: translateX(-30%) skew(-10deg, 0);
+  }
 }
