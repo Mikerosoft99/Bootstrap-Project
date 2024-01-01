@@ -15,31 +15,16 @@ h2 {
     text-align: center;
 }
 
-button {
+#product-form input,
+#product-form textarea {
     width: 50%;
-    background-color: #4caf50;
+}
+
+#addProduct {
     color: white;
-    padding: 10px 15px;
-    margin: 10px auto;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 15px;
-    transition: 0.3s ease;
-}
-
-button:hover {
-    background-color: #38883c;
-}
-
-#add-product-form {
-    display: none;
-    margin-top: 10px;
-}
-
-form {
-    display: grid;
-    gap: 5px;
 }
 
 label {
@@ -49,54 +34,39 @@ label {
 input,
 textarea {
     margin: 5px auto;
-    width: 50%;
     padding: 8px;
-    box-sizing: border-box;
 }
 
-#product-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#product-table th,
-#product-table td {
-    padding: 10px;
-    text-align: center;
+.imgCell {
+    width: 9%;
 }
 
 #product-table th {
     background-color: #ecdddd;
-    text-align: center;
-}
-
-.priceCell {
-    width: 7%;
 }
 
 #product-list .edit-button {
-    width: 100%;
     background-color: #47a7e8;
     color: white;
     padding: 8px 15px;
     margin-top: 5px;
     border: none;
-    border-radius: 3px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 14px;
+    transition: 0.4s ease;
 }
 
 #product-list .delete-button {
-    width: 100%;
     background-color: #d9534f;
     color: white;
     padding: 8px 15px;
     margin-top: 5px;
     border: none;
-    border-radius: 3px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 14px;
+    transition: 0.4s ease;
 }
 
 #product-list .edit-button:hover {
@@ -133,35 +103,22 @@ textarea {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
+    border-radius: 6px;
     box-sizing: border-box;
 }
 
-#saveChangesButton {
-    display: inline-block;
-    padding: 8px 15px;
-    background-color: #4caf50;
+#saveChangesButton,
+#add {
     color: #fff;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#saveChangesButton:hover,#addProduct:hover {
-    background-color: #2f7533;
+    border-radius: 10px;
+    transition: 0.5s ease;
 }
 
 #cancelEdit,
 #cancelAdd {
-    display: inline-block;
-    padding: 8px 15px;
-    background-color: #dd2828;
     color: #fff;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#cancelEdit:hover,
-#cancelAdd:hover {
-    background-color: #a71c1c;
+    border-radius: 10px;
+    transition: 0.5s ease;
 }
