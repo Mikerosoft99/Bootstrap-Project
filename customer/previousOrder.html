@@ -10,28 +10,31 @@
     <link rel="stylesheet" href="../nav.css">
     <link rel="stylesheet" href="../footer.css">
     <link rel="icon" href="../images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../bootstrap.css">
+
     <title>My Orders</title>
     <style>
         body {
-            background-color: #f5f5f5;
+            animation: animateBackground;
+            background-image: linear-gradient(to right, #98a6e6, #95abeae4, #a2afea, #d9dced);
         }
 
-        #con ul li {
-            list-style: none;
-        }
+        @keyframes animateBackground {
+            0% {
+                background-position: 0 0;
+            }
 
-        #customerOrderList {
-            margin-bottom: 20px;
-            text-align: center;
-            width: 60%;
-            margin: 10px auto;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
+            25% {
+                background-position: 25% 0;
+            }
 
-        #con {
-            padding: 20px 0;
-            margin-bottom: 30px;
-            background-color: white;
+            50% {
+                background-position: 75% 0;
+            }
+
+            100% {
+                background-position: 100% 0;
+            }
         }
     </style>
 </head>
@@ -68,10 +71,12 @@
             </div>
         </div>
     </nav>
+    <div class="background"></div>
 
-    <div id="customerOrderList">
-        <div id='orderList'></div>
-    </div>
+    <section class="container text-center mt-4">
+        <div id='customerOrderList' class="row grid gap-3 justify-content-center"></div>
+    </section>
+
 
     <footer>
         <div id="footer-content">
@@ -94,6 +99,7 @@
             <p>&copy; 2023 ITI. All rights reserved.</p>
         </div>
     </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var logoutLink = document.getElementById('logoutLink');
@@ -122,14 +128,19 @@
                     ? (order.isAccepted ? 'green' : 'red')
                     : 'black';
 
-                out += `<div id="con">
-                <h3>Order #${index + 1}</h3>
+                out += `
+            <div class="card col-lg-3 col-md-5 col-ms-10 " >
+                <div class="card-body ">
+                <h5 class="card-title">Order #${index + 1}</h5>
                 <h4>Status: <span style="color: ${statusColor}">${status}</span></h4>
                 <h4>Order Items</h4>
                 <ul>
-                    ${order.items.map(item => `<li> <img width='30px' src='${item.image}'> ${item.name} - Quantity: ${item.quantity} - Price: ${item.price.toFixed(2)}$ </li>`).join('')}
+                ${order.items.map(item => `<li>${item.name} - Quantity: ${item.quantity} - Price: $${item.price.toFixed(2)}</li>`).join('')}
                 </ul>
-                <p><strong>Total:</strong> $${order.total.toFixed(2)}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Total:</strong> $${order.total.toFixed(2)}</li>
+                </ul>
             </div>`;
                 orderListContainer.innerHTML = out;
             });
