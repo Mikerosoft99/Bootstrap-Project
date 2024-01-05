@@ -13,42 +13,48 @@
     <style>
         body {
             padding-top: 75px;
-            font-family: Arial, Helvetica, sans-serif;
             animation: animateBackground;
-            background-image: linear-gradient(to right, #98a6e6, #95abeae4, #a2afea, #d9dced)
+            background-image: linear-gradient(to right, #7bb8d2, #86c1d9, #92cae0, #9fd3e7, #abdce0, #b8e6f6, #c5f0ff);
+        }
+
+        @keyframes animateBackground {
+            0% {
+                background-position: 0 0;
             }
 
-            @keyframes animateBackground {
-                0% {
-                    background-position: 0 0;
-                }
-
-                25% {
-                    background-position: 25% 0;
-                }
-
-                50% {
-                    background-position: 75% 0;
-                }
-
-                100% {
-                    background-position: 100% 0;
-                }
+            25% {
+                background-position: 25% 0;
             }
 
-            .order button {
-                margin-right: 10px;
-                padding: 8px 15px;
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
+            50% {
+                background-position: 75% 0;
             }
 
-            .order button.reject {
-                background-color: #f44336;
+            100% {
+                background-position: 100% 0;
             }
+        }
+
+        .card {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #ffffff6b;
+            color: rgba(0, 0, 0, 0.83);
+            font-size: 15px;
+        }
+
+        .order button {
+            margin-right: 10px;
+            padding: 8px 15px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .order button.reject {
+            background-color: #f44336;
+        }
     </style>
 </head>
 
@@ -126,14 +132,14 @@
 
             orders.forEach((order, index) => {
                 ordersHTML += `
-            <div class="order card col-lg-3 col-md-5 col-ms-10" >
-                <div class="card-body ">
-                    <h3 class="card-title">Order #${index + 1}</h3>
+            <div class="order card col-lg-3 col-md-4 col-ms-6 col-xs-12" >
+                <div class="card-body">
+                    <h4 class="card-title">Order #${index + 1}</h4>
                     <p><strong>Name:</strong> ${order.customer.name}</p>
                     <p><strong>Address:</strong> ${order.customer.address}</p>
                     <p><strong>Email:</strong> ${order.customer.email}</p>
                     <h4>Order Items</h4>
-                    <ul >
+                    <ul>
                         ${order.items.map(item => `<li>${item.name} - Quantity: ${item.quantity} - Price: $${item.price.toFixed(2)}</li>`).join('')}
                     </ul>
                     <hr>

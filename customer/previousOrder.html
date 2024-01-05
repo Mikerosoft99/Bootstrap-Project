@@ -10,13 +10,23 @@
     <link rel="stylesheet" href="../nav.css">
     <link rel="stylesheet" href="../footer.css">
     <link rel="icon" href="../images/logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../bootstrap.css">
 
     <title>My Orders</title>
     <style>
         body {
             animation: animateBackground;
-            background-image: linear-gradient(to right, #98a6e6, #95abeae4, #a2afea, #d9dced);
+            background-image: linear-gradient(to right, #7bb8d2, #86c1d9, #92cae0, #9fd3e7, #abdce0, #b8e6f6, #c5f0ff);
+        }
+
+        .card {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #ffffff6b;
+            color: rgba(0, 0, 0, 0.83);
+            font-size: 15px;
+        }
+
+        .list-group-item {
+            background-color: #ffffff6b;
         }
 
         @keyframes animateBackground {
@@ -71,10 +81,11 @@
             </div>
         </div>
     </nav>
+
     <div class="background"></div>
 
     <section class="container text-center mt-4">
-        <div id='customerOrderList' class="row grid gap-3 justify-content-center"></div>
+        <div id='customerOrderList' class="row grid gap-3 d-flex justify-content-center"></div>
     </section>
 
 
@@ -125,26 +136,25 @@
                     : 'Pending...';
 
                 var statusColor = order.isAccepted !== undefined
-                    ? (order.isAccepted ? 'green' : 'red')
-                    : 'black';
+                    ? (order.isAccepted ? 'success' : 'danger')
+                    : 'dark';
 
                 out += `
-            <div class="card col-lg-3 col-md-5 col-ms-10 " >
+            <div class="card col-lg-3 col-md-4 col-ms-6 col-xs-12" >
                 <div class="card-body ">
-                <h5 class="card-title">Order #${index + 1}</h5>
-                <h4>Status: <span style="color: ${statusColor}">${status}</span></h4>
-                <h4>Order Items</h4>
+                <h5 class="card-title text-primary">Order <b class="text-dark">#${index + 1}</b></h5>
+                <h4 class="text-primary">Status: <b><span class="text-${statusColor}">${status}</span></b></h4>
+                <h4 class="text-primary">Order Items</h4>
                 <ul>
                 ${order.items.map(item => `<li>${item.name} - Quantity: ${item.quantity} - Price: $${item.price.toFixed(2)}</li>`).join('')}
                 </ul>
                 </div>
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Total:</strong> $${order.total.toFixed(2)}</li>
+                <li class="list-group-item m-3"><strong>Total:</strong> $${order.total.toFixed(2)}</li>
                 </ul>
             </div>`;
                 orderListContainer.innerHTML = out;
             });
-
         }
         displayCustomerOrders()
     </script>
